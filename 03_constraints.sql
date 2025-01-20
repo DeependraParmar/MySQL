@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS employee (
+	id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    age INT NOT NULL,
+    CONSTRAINT age_check CHECK (age >= 18)
+);
+
+CREATE TABLE IF NOT EXISTS human (
+	age INT CHECK (age >= 18)
+);
+
+INSERT INTO human values (12); -- ---> GIVES ERROR FOR CHECK VIOLATION
